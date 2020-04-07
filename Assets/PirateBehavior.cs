@@ -18,6 +18,11 @@ public class PirateBehavior : MonoBehaviour
     private Rigidbody rigid;
     private Transform tp;
     private int dodgeCount = 0;
+    private bool isSmoking = false;
+    private bool explode=false;
+    
+
+    [SerializeField] GameObject grenade;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,16 +51,32 @@ public class PirateBehavior : MonoBehaviour
 
 
 
-        if (distance >= 5 && isDead == false && behavior >= 50 && isAtking==false)
+        if (distance >= 5 && isDead == false && behavior >= 50 && isAtking==false && isSmoking == false)
         {
             StartCoroutine("Shoot");
         }
 
-        if(distance<5 && isDead==false&& behavior<50 && isAtking==false&& isDodging==false && dodgeCount<3)
+        if(distance<5 && isDead==false&& behavior<50 && isAtking==false&& isDodging==false && dodgeCount<4 && isSmoking==false)
         {
             StartCoroutine("Dodge");
         }
-        if (distance < 5 && isDead == false && behavior < 90 && isAtking == false && isDodging == false && dodgeCount>=3)
+        if (distance < 5 && isDead == false && behavior > 50 && behavior <=70 && isAtking == false && isDodging == false && dodgeCount < 4 && isSmoking == false)
+        {
+            
+            StartCoroutine("Flip");
+            if (explode == false)
+            {
+                Instantiate(grenade, gameObject.transform);
+                explode = true;
+            }
+            
+        }
+        if (distance < 5 && isDead == false && behavior > 70 && behavior <= 90 && isAtking == false && isDodging == false && dodgeCount < 4 && isSmoking == false)
+        {
+            StartCoroutine("Kick");
+        }
+
+        if (distance < 5 && isDead == false && behavior < 90 && isAtking == false && isDodging == false && dodgeCount>=4 && isSmoking == false)
         {
             StartCoroutine("Smoke");
         }
@@ -72,6 +93,7 @@ public class PirateBehavior : MonoBehaviour
         checkCooldown = true;
 
         behavior = Random.Range(0, 100);
+        
         yield return new WaitForSeconds(2.5f);
         checkCooldown = false;
 
@@ -81,23 +103,52 @@ public class PirateBehavior : MonoBehaviour
     {
         isAtking = true;
         anim.SetTrigger("Atk");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         isAtking = false;
     }
 
     IEnumerator Dodge()
     {
         isDodging = true;
+        
         anim.SetTrigger("BackDodge");
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(3f);
         isDodging = false;
         dodgeCount += 1;
     }
 
+    IEnumerator Kick()
+    {
+        
+        anim.SetTrigger("Melee");
+        yield return new WaitForSeconds(1.5f);
+        isDodging = true;
+        yield return new WaitForSeconds(2.5f);
+        isDodging = false;
+        dodgeCount += 1;
+    }
+    IEnumerator Flip()
+    {
+        
+        anim.SetTrigger("BackFlip");
+        Debug.Log("trig");
+        yield return new WaitForSeconds(1.5f);
+        isDodging = true;
+        yield return new WaitForSeconds(2.5f);
+        isDodging = false;
+        explode = false;
+        dodgeCount += 1;
+    }
+
+
     IEnumerator Smoke()
     {
+        isSmoking = true;
         yield return new WaitForSeconds(1f);
+        
         transform.position = tp.position;
         dodgeCount = 0;
+        yield return new WaitForSeconds(3f);
+        isSmoking = false;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     [SerializeField] private GameObject explosionImpact;
-    [SerializeField] private GameObject target;
+   
     public bool isTouch = true;
  
     // Start is called before the first frame update
@@ -20,35 +20,40 @@ public class Explosion : MonoBehaviour
     {
       
     }
-
-    
-    private void OnCollisionEnter(Collision collision)
+    private void Explode()
     {
-
         if (isTouch == true)
         {
-            if (collision.gameObject.tag == "Surface")
+            //if (collision.gameObject.tag == "Surface")
+            //{
+
+            GameObject clone;
+            clone = Instantiate(explosionImpact, gameObject.transform.position, Quaternion.identity);
+
+            Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position, 3);
+            foreach (Collider col in colliders)
             {
+                //if (col.transform.tag == "Surface")
+                //{
 
-                GameObject clone;
-                clone = Instantiate(explosionImpact, gameObject.transform.position, Quaternion.identity);
-
-                Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position, 2);
-                foreach (Collider col in colliders)
+                //    //col.GetComponent<EnemyStats>().TakeDamage(30);
+                //    Debug.Log("Boom");
+                //}
+                if (col.transform.tag == "Player")
                 {
-                    if (col.transform.tag == "Surface")
-                    {
-                       
-                        //col.GetComponent<EnemyStats>().TakeDamage(30);
-                        Debug.Log("Boom");
-                    }
+                    Debug.Log("Boom");
+                    col.GetComponent<Animator>().SetTrigger("Falling");
+                    col.GetComponent<PlayerStats>().GettingUp();
+                    col.GetComponent<PlayerStats>().TakeDamage(20);
+                    col.GetComponent<Rigidbody>().AddExplosionForce(10f, gameObject.transform.position, 10f, 1f, ForceMode.VelocityChange);
                 }
-                Destroy(gameObject);
-                Destroy(clone, 2f);
-                isTouch = false;
-
-
             }
+            Destroy(gameObject);
+            Destroy(clone, 2f);
+            isTouch = false;
+
+
+            //}
         }
 
         //if (collision.gameObject.tag == "Target")
@@ -58,5 +63,13 @@ public class Explosion : MonoBehaviour
         //}
 
 
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Invoke("Explode",2f);
+        
+       
     }
 }

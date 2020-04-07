@@ -113,6 +113,7 @@ public class PlayerAtk : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        subject = GameObject.FindGameObjectWithTag("Player");
         code = GameManager.instance;
         control = subject.GetComponent<ThirdPersonUserControl>();
         anim = subject.GetComponent<Animator>();

@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Charactor Choosing.unity
     guid: 9b4f1ea724414a8468d5c4e93a38c919
   - enabled: 1
+    path: Assets/Scenes/EntryScene.unity
+    guid: 1fdfb82f6a6ca05488546c7417773344
+  - enabled: 1
     path: Assets/Scenes/Terrain.unity
     guid: 122e6079772cce349bcbec86e4106274
+  - enabled: 1
+    path: Assets/Scenes/SecondBossScene.unity
+    guid: fd356ceb25e027647a21c02e6930784f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 74ca663fb518d1944b8e103af19f0817,
       type: 2}

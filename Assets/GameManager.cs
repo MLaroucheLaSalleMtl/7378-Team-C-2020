@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
+
 public class GameManager : MonoBehaviour
 {
 
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     public float dodging;
     public float maxCount;
     public bool buffed = false;
+
+    private int action = 0;
+
 
     public static GameManager instance = null;
     private void Awake()
@@ -62,6 +66,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
 
 
 

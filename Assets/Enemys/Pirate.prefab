@@ -2125,6 +2125,7 @@ GameObject:
   - component: {fileID: 821162239899608299}
   - component: {fileID: 821162239899608297}
   - component: {fileID: 821162239899608278}
+  - component: {fileID: 6412065052233591978}
   m_Layer: 0
   m_Name: Pirate
   m_TagString: Untagged
@@ -2234,6 +2235,7 @@ MonoBehaviour:
   player: {fileID: 0}
   isDodging: 0
   behavior: 0
+  arrow: {fileID: 1664519513699970581, guid: d51bcf7475c8db544bdab11a87343368, type: 3}
   grenade: {fileID: 9058327109616001749, guid: 875e7dd10fa2d6a499cadf6f9d9d26fc, type: 3}
 --- !u!114 &821162239899608278
 MonoBehaviour:
@@ -2248,6 +2250,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &6412065052233591978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666253492352648860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46747af355e82f479902aefc0b3778a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 600
+  maxHp: 600
+  Duration: 0
 --- !u!1 &8868202104844782429
 GameObject:
   m_ObjectHideFlags: 0

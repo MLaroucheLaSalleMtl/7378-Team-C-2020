@@ -7,7 +7,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class PlayerAtk : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject subject;
+    private GameObject subject;
     private int count;
     public float atkInterval;
     public float atkReset;
@@ -20,8 +20,11 @@ public class PlayerAtk : MonoBehaviour
     private float skillCD = 0f;
     private float maxCount ;
 
+    private float heavyCooldown =0f;
 
     private GameManager code;
+
+    [SerializeField] private GameObject heavyHit;
 
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject atkEffect;
@@ -29,6 +32,17 @@ public class PlayerAtk : MonoBehaviour
     [SerializeField]private GameObject atkHit;
     private Vector3 offset = new Vector3(0.3f, 1.3f, 0.6f);
 
+
+    IEnumerator HeavyEffect()
+    {
+        subject.GetComponent<PlayerStats>().isInvince = true;
+        yield return new WaitForSeconds(1.5f);
+        Instantiate(heavyHit,subject.transform);
+        yield return new WaitForSeconds(1.5f);
+        Instantiate(heavyHit,subject.transform);
+        yield return new WaitForSeconds(1.5f);
+        subject.GetComponent<PlayerStats>().isInvince = false;
+    }
 
     IEnumerator PlayEffect()
     {
@@ -142,11 +156,42 @@ public class PlayerAtk : MonoBehaviour
                     {
                         Instantiate(bullet, subject.transform);
                     }
+                    else if(anim.GetInteger("Tree")==2)
+                    {
+                        switch (count)
+                        {
+                            case 1:
+                                if (true)
+                                {
+                                    
+                                    code.atkCooldown = 0.5f;
+                                    code.globalCooldown = 2.5f;
+                                }
+                                break;
+                            case 2:
+                                
+                                code.atkCooldown = 3f;
+                                code.globalCooldown = 4f;
+                                break;
+                            case 3:
+                                
+                                code.atkCooldown = 1f;
+                                code.globalCooldown = 2f;
+                                break;
+                            default:
+                                {
+                                    code.atkCooldown = 0.5f;
+                                    code.globalCooldown = 1f;
+                                }
+                                break;
+                        }
+                    }
 
                 }
             }
         }
     }
+
 
 
 
@@ -169,6 +214,13 @@ public class PlayerAtk : MonoBehaviour
                     atkcooldown = 2.5f;
                     StartCoroutine("ActivePowerEffect2");
                 }
+                if(anim.GetInteger("Tree")==2 && heavyCooldown <=0)
+                {
+                    subject.GetComponent<Animator>().SetTrigger("Power");
+                    StartCoroutine("HeavyEffect");
+                    atkcooldown = 4f;
+                    heavyCooldown = 10f;
+                }
             }
         }
     }
@@ -178,6 +230,10 @@ public class PlayerAtk : MonoBehaviour
 
 
         UpdateTree();
+        if(heavyCooldown>0)
+        {
+            heavyCooldown -= Time.deltaTime;
+        }
         if (skillCD >0)
         {
             skillCD -= Time.deltaTime;
@@ -195,7 +251,12 @@ public class PlayerAtk : MonoBehaviour
         {
             globalatkcooldown -= Time.deltaTime;
         }
-        if (count >= maxCount && atkcooldown <= 0f)
+        if (count >= maxCount && atkcooldown <= 0f && code.tree!=2)
+        {
+            count = 0;
+            Debug.Log("reset");
+        }
+        if (count >= maxCount && globalatkcooldown <= 0f && code.tree==2)
         {
             count = 0;
             Debug.Log("reset");

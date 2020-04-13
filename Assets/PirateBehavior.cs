@@ -23,6 +23,7 @@ public class PirateBehavior : MonoBehaviour
     private bool isFlip = false;
     private bool isWalking = false;
     [SerializeField] GameObject arrow;
+    [SerializeField] GameObject kick;
     
 
     [SerializeField] GameObject grenade;
@@ -146,11 +147,14 @@ public class PirateBehavior : MonoBehaviour
     {
         
         anim.SetTrigger("Melee");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.75f);
+        Instantiate(kick, transform);
+        yield return new WaitForSeconds(0.75f);
         isDodging = true;
         yield return new WaitForSeconds(2.5f / anim.GetFloat("Speed"));
         isDodging = false;
         dodgeCount += 1;
+
     }
     IEnumerator Flip()
     {

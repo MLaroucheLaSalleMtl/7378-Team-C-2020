@@ -2236,6 +2236,7 @@ MonoBehaviour:
   isDodging: 0
   behavior: 0
   arrow: {fileID: 1664519513699970581, guid: d51bcf7475c8db544bdab11a87343368, type: 3}
+  kick: {fileID: 6278468193938538194, guid: ee05e886f82168b4cae68fa3b1d1cf16, type: 3}
   grenade: {fileID: 9058327109616001749, guid: 875e7dd10fa2d6a499cadf6f9d9d26fc, type: 3}
 --- !u!114 &821162239899608278
 MonoBehaviour:

@@ -62,6 +62,12 @@ public class GameManager : MonoBehaviour
                     dodging = 1f;
                     maxCount = 4f;
                     break;
+                case 2:
+                    atkCooldown = atkCooldown = 1.0f;
+                    globalCooldown = 3f;
+                    dodging = 1f;
+                    maxCount = 3f;
+                    break;
 
             }
         }

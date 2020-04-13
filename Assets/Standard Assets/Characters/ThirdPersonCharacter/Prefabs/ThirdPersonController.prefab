@@ -142,6 +142,8 @@ MonoBehaviour:
   playerAtk: 50
   shield: {fileID: 1068786379}
   isShield: 0
+  heathBar: {fileID: 0}
+  death: {fileID: 0}
 --- !u!1 &1068786379
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +199,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -221,6 +224,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2058566639
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,14 +262,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 408730}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: ShapeModule.type
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1582721704462871028, guid: d7a6940a118835645b570a6200f4ae2c,
         type: 3}
       propertyPath: m_Name
@@ -346,6 +342,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 408730}
     m_Modifications:
+    - target: {fileID: -8281346260134947241, guid: 2fede0eb5d4a84d40aa9e43b25eea02a,
+        type: 3}
+      propertyPath: m_TagString
+      value: EffectStart
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 2fede0eb5d4a84d40aa9e43b25eea02a,
         type: 3}
       propertyPath: m_Controller

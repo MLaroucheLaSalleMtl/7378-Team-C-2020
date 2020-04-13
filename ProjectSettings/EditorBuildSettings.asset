@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SecondBossScene.unity
     guid: fd356ceb25e027647a21c02e6930784f
+  - enabled: 1
+    path: Assets/Scenes/ThirdBossScene.unity
+    guid: 14f0613ba59efb94bba451aa821ba306
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 74ca663fb518d1944b8e103af19f0817,
       type: 2}

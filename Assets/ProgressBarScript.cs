@@ -15,7 +15,14 @@ public class ProgressBarScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneToLoad = 2;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            sceneToLoad = 2;
+        }
+        if(SceneManager.GetActiveScene().buildIndex > 1)
+        {
+            sceneToLoad = 0;
+        }
         slider = gameObject.GetComponent<Image>();
         async = SceneManager.LoadSceneAsync(sceneToLoad);
         print("async = " + async.progress);

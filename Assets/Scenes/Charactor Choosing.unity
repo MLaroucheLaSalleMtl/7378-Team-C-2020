@@ -939,6 +939,8 @@ MonoBehaviour:
   menu: {fileID: 0}
   inGameMenu: {fileID: 0}
   character: {fileID: 786005461}
+  healthBar: {fileID: 0}
+  progress: {fileID: 6853358722941136307}
   tree: 1
   atkCooldown: 0
   globalCooldown: 0
@@ -1269,6 +1271,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68046784d3b0a314eb43a14d94ed248a, type: 3}
+--- !u!114 &6853358722941136307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4250612235906777682, guid: 68046784d3b0a314eb43a14d94ed248a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6853358722941136306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a54848d6da58f4881165b4cca4e950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7341201902075682802 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4250612235293930048, guid: 68046784d3b0a314eb43a14d94ed248a,

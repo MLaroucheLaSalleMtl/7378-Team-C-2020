@@ -7,6 +7,12 @@ public class EventSys : MonoBehaviour
 {
     [SerializeField]private int action = 0;
     public static EventSys instance = null;
+    [SerializeField] private GameObject ProgressBar;
+    [SerializeField] private ProgressBarScript progress;
+    [SerializeField] private GameObject heathBar;
+
+
+
     private void Awake()
     {
         if (instance == null)
@@ -19,10 +25,11 @@ public class EventSys : MonoBehaviour
 
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -37,16 +44,27 @@ public class EventSys : MonoBehaviour
 
     public void interact()
     {
+      
         switch (action)
         {
             case 1:
-                SceneManager.LoadSceneAsync(3);
+                progress.loadScenes = 3;
+            
+                ProgressBar.SetActive(true);
+                
+                //SceneManager.LoadSceneAsync(3);
                 break;
             case 2:
-                SceneManager.LoadSceneAsync(4);
+                progress.loadScenes = 4;
+             
+                ProgressBar.SetActive(true);
+                //SceneManager.LoadSceneAsync(4);
                 break;
             case 3:
-                SceneManager.LoadScene(5);
+                progress.loadScenes = 5;
+        
+                ProgressBar.SetActive(true);
+                //SceneManager.LoadScene(5);
                 break;
 
         }

@@ -1347,7 +1347,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6261,6 +6260,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f5eb0d0629f2444db199a4b7705faae, type: 3}
+--- !u!114 &499834944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4250612235906777682, guid: 68046784d3b0a314eb43a14d94ed248a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379990191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a54848d6da58f4881165b4cca4e950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &513798100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6835,6 +6846,16 @@ PrefabInstance:
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 1379990192}
+    - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
+        type: 3}
+      propertyPath: progress
+      value: 
+      objectReference: {fileID: 499834944}
+    - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1872552811}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da9c535e15bf5541972fcc0cdba2163, type: 3}
 --- !u!1 &708672620 stripped
@@ -6843,18 +6864,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 708672619}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &708672621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708672620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9585fa9e410c85643b07434182ab134c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &708672622 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
@@ -8279,6 +8288,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4250612235906777682, guid: 68046784d3b0a314eb43a14d94ed248a,
+        type: 3}
+      propertyPath: loadScenes
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250612235906777682, guid: 68046784d3b0a314eb43a14d94ed248a,
+        type: 3}
+      propertyPath: heathBar
+      value: 
+      objectReference: {fileID: 1872552811}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68046784d3b0a314eb43a14d94ed248a, type: 3}
 --- !u!1 &1379990192 stripped
@@ -8977,6 +8996,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: 0
+  ProgressBar: {fileID: 1379990192}
+  progress: {fileID: 499834944}
+  heathBar: {fileID: 0}
 --- !u!1001 &1492783747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24114,7 +24136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1872552812
 RectTransform:
   m_ObjectHideFlags: 0

@@ -7,31 +7,36 @@ using UnityEngine.Rendering;
 
 public class ProgressBarScript : MonoBehaviour
 {
+    public int loadScenes;
     private Image slider;
     private AsyncOperation async;
     private int sceneToLoad;
     [SerializeField] private Text progress;
     private float value;
+    [SerializeField] private GameObject heathBar;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if(heathBar != null)
         {
-            sceneToLoad = 2;
+            heathBar.SetActive(false);
         }
-        if(SceneManager.GetActiveScene().buildIndex > 1)
-        {
-            sceneToLoad = 0;
-        }
+      
+        sceneToLoad = loadScenes;
         slider = gameObject.GetComponent<Image>();
         async = SceneManager.LoadSceneAsync(sceneToLoad);
         print("async = " + async.progress);
         async.allowSceneActivation = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(sceneToLoad);
         slider.fillAmount += async.progress / 100;
         if (SplashScreen.isFinished && slider.fillAmount == 1f)
         {
@@ -39,5 +44,9 @@ public class ProgressBarScript : MonoBehaviour
         }
         value = slider.fillAmount;
         progress.text = value * 100 + "%";
+        if(async.progress == 1)
+        {
+            heathBar.SetActive(true);
+        }
     }
 }

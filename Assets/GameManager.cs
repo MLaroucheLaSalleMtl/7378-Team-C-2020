@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject inGameMenu;
     [SerializeField] private GameObject character;
-
+    [SerializeField] private GameObject healthBar;
+    [SerializeField] private ProgressBarScript progress;
 
     public int tree = 1;
     public float atkCooldown;
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
     }
     public void PlayGame()
     {
+        progress.loadScenes = 2;
         progressBar.SetActive(true);
         character.SetActive(false);
     }
@@ -114,13 +116,16 @@ public class GameManager : MonoBehaviour
     public void ReturnToMenu()
     {
         //SceneManager.LoadSceneAsync(0);
+        progress.loadScenes = 0;
         progressBar.SetActive(true);
         inGameMenu.SetActive(false);
+        healthBar.SetActive(false);
         Time.timeScale = 1;
     }
 
     public void Restart()
     {
+        progress.loadScenes = 0;
         SceneManager.LoadSceneAsync(1);
         Time.timeScale = 1;
         Cursor.visible = false;

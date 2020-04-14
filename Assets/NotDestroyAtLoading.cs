@@ -30,6 +30,7 @@ public class NotDestroyAtLoading : MonoBehaviour
             // Destroy the gameobject this script is attached to
             Destroy(gameObject);
         }
+
     }
 
 }

@@ -35,7 +35,7 @@ public class PlayerAtk : MonoBehaviour
     [SerializeField] private GameObject atkHit3;
     public bool isTalking = false;
 
-    private PlayerAtk instance = null;
+    private static PlayerAtk instance = null;
     void Awake()
     {
         if (instance == null)

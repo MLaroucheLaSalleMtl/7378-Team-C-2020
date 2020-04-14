@@ -22,17 +22,30 @@ public class ProgressBarScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(heathBar != null)
+        //if(heathBar != null)
+        //{
+        //    heathBar.SetActive(false);
+        //}
+      
+        //sceneToLoad = loadScenes;
+        //slider = gameObject.GetComponent<Image>();
+        //async = SceneManager.LoadSceneAsync(sceneToLoad);
+        //print("async = " + async.progress);
+        //async.allowSceneActivation = false;
+        
+    }
+    private void OnEnable()
+    {
+        if (heathBar != null)
         {
             heathBar.SetActive(false);
         }
-      
+
         sceneToLoad = loadScenes;
         slider = gameObject.GetComponent<Image>();
         async = SceneManager.LoadSceneAsync(sceneToLoad);
         print("async = " + async.progress);
         async.allowSceneActivation = false;
-        
     }
 
     // Update is called once per frame

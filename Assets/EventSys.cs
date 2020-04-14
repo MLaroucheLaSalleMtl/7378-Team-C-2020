@@ -48,6 +48,7 @@ public class EventSys : MonoBehaviour
                 Time.timeScale = 0;
                 progress.loadScenes = 3;
                 ProgressBar.SetActive(true);
+                //SceneManager.LoadScene(3);
                 player.transform.position = new Vector3(70, 35, 53);
                 break;
             case 2:
@@ -64,6 +65,7 @@ public class EventSys : MonoBehaviour
             case 4:
                 input.isTalking = true;
                 break;
+
 
 
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WarrockBehavior : MonoBehaviour
 {
@@ -226,9 +227,10 @@ public class WarrockBehavior : MonoBehaviour
 
     void EnemyDeath()
     {
-        win.SetActive(true);
-        Time.timeScale = 0;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(2);
+        //win.SetActive(true);
+        //Time.timeScale = 0;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
     }
 }

@@ -24,7 +24,8 @@ public class PirateBehavior : MonoBehaviour
     private bool isWalking = false;
     [SerializeField] GameObject arrow;
     [SerializeField] GameObject kick;
-    
+    private EnemyStats stats;
+    private float hp;
 
     [SerializeField] GameObject grenade;
     // Start is called before the first frame update
@@ -35,14 +36,28 @@ public class PirateBehavior : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
+        stats = GetComponent<EnemyStats>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player.transform.position);
+        hp = stats.hp;
+        if (isDead == false)
+        {
+            transform.LookAt(player.transform.position);
+        }
         CheckDistance();
         CheckWalk();
+        if (hp <= 0 && isDead == false)
+        {
+            isDead = true;
+            anim.SetBool("IsDead", isDead);
+            anim.SetTrigger("Death");
+            nav.speed = 0f;
+            
+        }
 
 
         if(isDodging==true)

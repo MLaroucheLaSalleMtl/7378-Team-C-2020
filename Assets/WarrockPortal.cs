@@ -8,7 +8,7 @@ public class WarrockPortal : MonoBehaviour
 {
     private GameObject player;
     private float distance;
-    [SerializeField] private EventSys sys;
+    private EventSys sys;
     private bool onlyOnce = true;
     [SerializeField]  Text portalTxt;
     [SerializeField] private int action;
@@ -23,6 +23,10 @@ public class WarrockPortal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(sys==null)
+        {
+            sys = EventSys.instance;
+        }
         CheckDistance();
         if(distance<=5 && onlyOnce ==true)
         {

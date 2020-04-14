@@ -29,12 +29,13 @@ namespace UnityStandardAssets.Cameras
         private Quaternion m_TransformTargetRot;
 
         private Vector2 deltaMouse;
+        private static FreeLookCam instance = null;
+
 
         public void OnLook(InputAction.CallbackContext context)
         {
             deltaMouse = context.ReadValue<Vector2>();
         }
-        private FreeLookCam instance;
 
         protected override void Awake()
         {

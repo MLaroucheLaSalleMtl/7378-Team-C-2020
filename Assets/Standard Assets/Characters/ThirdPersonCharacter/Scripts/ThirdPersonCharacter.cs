@@ -28,12 +28,28 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         Vector3 m_CapsuleCenter;
         CapsuleCollider m_Capsule;
         bool m_Crouching;
-        
 
 
-        
+        private static ThirdPersonCharacter instance = null;
 
-		void Start()
+        void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);//only one exist
+
+            }
+            DontDestroyOnLoad(this.gameObject);
+
+
+        }
+
+
+        void Start()
 		{
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();

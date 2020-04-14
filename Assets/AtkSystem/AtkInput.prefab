@@ -56,3 +56,4 @@ MonoBehaviour:
   powEffect: {fileID: 4576922740987322173, guid: 081a2f4474f1a4443ab379589400022b,
     type: 3}
   atkHit: {fileID: 1582721704462871028, guid: d7a6940a118835645b570a6200f4ae2c, type: 3}
+  atkHit3: {fileID: 3649194531492109670, guid: 96a01148052ec25438b678102f924ba8, type: 3}

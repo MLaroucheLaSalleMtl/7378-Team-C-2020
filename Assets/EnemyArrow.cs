@@ -18,9 +18,13 @@ public class EnemyArrow : MonoBehaviour
         {
 
             Debug.Log("Ouch");
-            other.GetComponent<Animator>().SetTrigger("Falling");
-            other.GetComponent<PlayerStats>().GettingUp();
+            if (other.GetComponent<PlayerStats>().super == false)
+            {
+                other.GetComponent<Animator>().SetTrigger("Falling");
+                other.GetComponent<PlayerStats>().GettingUp();
+            }
             other.GetComponent<PlayerStats>().TakeDamage(20);
+            Destroy(gameObject);
         }
     }
 

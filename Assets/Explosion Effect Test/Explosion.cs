@@ -41,9 +41,14 @@ public class Explosion : MonoBehaviour
                 //}
                 if (col.transform.tag == "Player")
                 {
+
                     Debug.Log("Boom");
-                    col.GetComponent<Animator>().SetTrigger("Falling");
-                    col.GetComponent<PlayerStats>().GettingUp();
+                    if (col.GetComponent<PlayerStats>().super == false)
+                    {
+                        col.GetComponent<Animator>().SetTrigger("Falling");
+                        col.GetComponent<PlayerStats>().GettingUp();
+                    }
+                    
                     col.GetComponent<PlayerStats>().TakeDamage(20);
                     col.GetComponent<Rigidbody>().AddExplosionForce(10f, gameObject.transform.position, 10f, 1f, ForceMode.VelocityChange);
                 }

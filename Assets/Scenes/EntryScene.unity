@@ -6903,7 +6903,7 @@ PrefabInstance:
     - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
         type: 3}
       propertyPath: tree
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
         type: 3}
@@ -9080,6 +9080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   action: 0
   player: {fileID: 681617851}
+  input: {fileID: 1768475396}
   ProgressBar: {fileID: 1379990192}
   progress: {fileID: 499834944}
 --- !u!114 &1489967143

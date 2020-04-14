@@ -32,6 +32,9 @@ public class PlayerAtk : MonoBehaviour
     [SerializeField]private GameObject atkHit;
     private Vector3 offset = new Vector3(0.3f, 1.3f, 0.6f);
 
+    [SerializeField] private GameObject atkHit3;
+    public bool isTalking = false;
+
     private PlayerAtk instance = null;
     void Awake()
     {
@@ -57,6 +60,7 @@ public class PlayerAtk : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         subject.GetComponent<PlayerStats>().isInvince = false;
     }
+
 
     IEnumerator PlayEffect()
     {
@@ -90,16 +94,22 @@ public class PlayerAtk : MonoBehaviour
     {
         if (context.started)
         {
-            if (skillCD <= 0f && subject.GetComponent<PlayerStats>().isDown==false && anim.GetInteger("Tree")==0)
+            if (skillCD <= 0f && subject.GetComponent<PlayerStats>().isDown==false && anim.GetInteger("Tree")==0 && isTalking == false)
             {
                 anim.SetTrigger("Casting");
                 skillCD = 15f;
                 subject.GetComponent<PlayerStats>().ActiveSkill();
             }
-            else if (skillCD <= 0f && subject.GetComponent<PlayerStats>().isDown == false && anim.GetInteger("Tree") == 1)
+            else if (skillCD <= 0f && subject.GetComponent<PlayerStats>().isDown == false && anim.GetInteger("Tree") == 1 && isTalking == false)
             {
                 anim.SetTrigger("Casting");
                 skillCD = 15f;
+                subject.GetComponent<PlayerStats>().ActiveSkill();
+            }
+            else if (skillCD <= 0f && subject.GetComponent<PlayerStats>().isDown == false && anim.GetInteger("Tree") == 2 && isTalking == false)
+            {
+                anim.SetTrigger("Casting");
+                skillCD = 20f;
                 subject.GetComponent<PlayerStats>().ActiveSkill();
             }
         }
@@ -112,7 +122,7 @@ public class PlayerAtk : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (anim.GetFloat("ComboCount") <= 0 && subject.GetComponent<PlayerStats>().isDown==false)
+        if (anim.GetFloat("ComboCount") <= 0 && subject.GetComponent<PlayerStats>().isDown==false && isTalking==false)
         {
 
 
@@ -127,7 +137,7 @@ public class PlayerAtk : MonoBehaviour
         
         if (context.started)
         {
-            if (dodging <= 0f&&subject.GetComponent<PlayerStats>().isDown==false)
+            if (dodging <= 0f&&subject.GetComponent<PlayerStats>().isDown==false &&isTalking==false)
             {
                 
                 subject.GetComponent<PlayerStats>().Dodging();
@@ -151,7 +161,7 @@ public class PlayerAtk : MonoBehaviour
     {
         if(context.started)
         {
-            if (subject.GetComponent<PlayerStats>().isDown == false)
+            if (subject.GetComponent<PlayerStats>().isDown == false && isTalking==false)
             {
                 dodging = dodgingReset;
                 if (count < maxCount && atkcooldown <= 0f)
@@ -172,6 +182,7 @@ public class PlayerAtk : MonoBehaviour
                     }
                     else if(anim.GetInteger("Tree")==2)
                     {
+                        Instantiate(atkHit3, subject.transform);
                         switch (count)
                         {
                             case 1:

@@ -6363,13 +6363,18 @@ PrefabInstance:
     - target: {fileID: 6412065052233591978, guid: 9706b8b6a1bdfff499c1580f3a68ac28,
         type: 3}
       propertyPath: maxHp
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6412065052233591978, guid: 9706b8b6a1bdfff499c1580f3a68ac28,
         type: 3}
       propertyPath: hp
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 6412065052233591978, guid: 9706b8b6a1bdfff499c1580f3a68ac28,
+        type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 2037572680}
     - target: {fileID: 8666253492352648860, guid: 9706b8b6a1bdfff499c1580f3a68ac28,
         type: 3}
       propertyPath: m_Name

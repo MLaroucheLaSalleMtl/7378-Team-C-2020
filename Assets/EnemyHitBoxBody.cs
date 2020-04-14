@@ -31,8 +31,11 @@ public class EnemyHitBoxBody : MonoBehaviour
             if (other.tag == "Player" && other.GetComponent<PlayerStats>().isInvince == false)
             {
                 Debug.Log("Ouch");
-                other.GetComponent<Animator>().SetTrigger("Falling");
-                other.GetComponent<PlayerStats>().GettingUp();
+                if (other.GetComponent<PlayerStats>().super == false)
+                {
+                    other.GetComponent<Animator>().SetTrigger("Falling");
+                    other.GetComponent<PlayerStats>().GettingUp();
+                }
                 other.GetComponent<PlayerStats>().TakeDamage(dmg);
             }
         }

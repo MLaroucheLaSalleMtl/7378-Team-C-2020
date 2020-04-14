@@ -27,11 +27,11 @@ public class WarrockBehavior : MonoBehaviour
 
     [SerializeField] GameObject win;
  
-    public void TakeDamage(float dmg)
-    {
-        hp -= dmg;
-        monsterHealth.fillAmount = hp / 600;
-    }
+    //public void TakeDamage(float dmg)
+    //{
+    //    hp -= dmg;
+    //    monsterHealth.fillAmount = hp / 600;
+    //}
     
     // Start is called before the first frame update
     void Start()
@@ -44,7 +44,7 @@ public class WarrockBehavior : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         nav = gameObject.GetComponent<NavMeshAgent>();
         
-        monsterHealth.fillAmount =  maxHp / 600;
+        //monsterHealth.fillAmount =  maxHp / 600;
     }
 
     // Update is called once per frame
@@ -52,7 +52,7 @@ public class WarrockBehavior : MonoBehaviour
     {
         hp = stats.hp;
         maxHp = stats.maxHp;
-        monsterHealth.fillAmount = hp / 600;
+        //monsterHealth.fillAmount = hp / 600;
 
         if (hp<=0 && isDead==false)
         {

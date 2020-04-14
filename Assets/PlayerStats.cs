@@ -10,12 +10,14 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float hp = 100f;
     private float maxHp = 100f;
     private Animator anim;
-    public float playerAtk = 50f;
+    public float playerAtk = 30f;
     public GameObject shield;
     public bool isShield = false;
     private bool isDead = false;
     private float shieldDuration;
     private GameManager code;
+    public bool super=false;
+    private float superDuration;
 
     private float accelo;
     private float speedMod = 2;
@@ -59,6 +61,11 @@ public class PlayerStats : MonoBehaviour
             code.dodging = 0.3f/2;
             code.buffed = true;
             hp += 20;
+        }
+        else if(code.tree==2)
+        {
+            super = true;
+            superDuration = 10;
         }
     }
     public void Dodging()
@@ -145,8 +152,20 @@ public class PlayerStats : MonoBehaviour
             anim.SetBool("IsDead", true);
             Invoke("Death", 2f);
         }
+       if(superDuration>0)
+        {
+            superDuration -= Time.deltaTime;
+        }
+       if(super==true&&superDuration<=0)
+        {
+            super = false;
+        }
     }
 
+    public void LifeVamp()
+    {
+        hp += playerAtk;
+    }
 
     void Death()
     {

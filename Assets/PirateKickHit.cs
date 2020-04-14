@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class PirateKickHit : MonoBehaviour
 {
+    private bool onlyonce = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && other.GetComponent<PlayerStats>().isInvince == false)
+        if (other.tag == "Player" && other.GetComponent<PlayerStats>().isInvince == false && onlyonce==false)
         {
-
+            onlyonce = true;
             Debug.Log("Ouch");
-            other.GetComponent<Animator>().SetTrigger("Falling");
-            other.GetComponent<PlayerStats>().GettingUp();
+            if (other.GetComponent<PlayerStats>().super == false)
+            {
+                other.GetComponent<Animator>().SetTrigger("Falling");
+                other.GetComponent<PlayerStats>().GettingUp();
+            }
             other.GetComponent<PlayerStats>().TakeDamage(20);
             Destroy(gameObject);
         }

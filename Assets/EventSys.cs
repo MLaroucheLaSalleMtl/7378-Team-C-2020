@@ -8,6 +8,7 @@ public class EventSys : MonoBehaviour
     [SerializeField]private int action = 0;
     public static EventSys instance = null;
     [SerializeField] private GameObject player;
+    [SerializeField] private PlayerAtk input;
 
     [SerializeField] private GameObject ProgressBar;
     [SerializeField] private ProgressBarScript progress;
@@ -60,6 +61,10 @@ public class EventSys : MonoBehaviour
                 progress.loadScenes = 5;
                 ProgressBar.SetActive(true);
                 break;
+            case 4:
+                input.isTalking = true;
+                break;
+
 
         }
         action = 0;

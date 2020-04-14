@@ -34,9 +34,21 @@ namespace UnityStandardAssets.Cameras
         {
             deltaMouse = context.ReadValue<Vector2>();
         }
+        private FreeLookCam instance;
 
         protected override void Awake()
         {
+
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);//only one exist
+
+            }
+        
             base.Awake();
             // Lock or unlock the cursor.
             Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
@@ -50,6 +62,7 @@ namespace UnityStandardAssets.Cameras
 
         protected void Update()
         {
+
             HandleRotationMovement();
             if (m_LockCursor && Input.GetMouseButtonUp(0))
             {
@@ -71,6 +84,7 @@ namespace UnityStandardAssets.Cameras
             if (m_Target == null) return;
             // Move the rig towards target position.
             transform.position = Vector3.Lerp(transform.position, m_Target.position, deltaTime * m_MoveSpeed);
+            transform.rotation = m_Target.rotation;
         }
 
 

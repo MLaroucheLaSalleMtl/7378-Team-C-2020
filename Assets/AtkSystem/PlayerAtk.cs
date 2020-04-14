@@ -7,7 +7,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class PlayerAtk : MonoBehaviour
 {
     // Start is called before the first frame update
-    private GameObject subject;
+    [SerializeField]private GameObject subject;
     private int count;
     public float atkInterval;
     public float atkReset;
@@ -32,8 +32,22 @@ public class PlayerAtk : MonoBehaviour
     [SerializeField]private GameObject atkHit;
     private Vector3 offset = new Vector3(0.3f, 1.3f, 0.6f);
 
+    private PlayerAtk instance = null;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);//only one exist
 
-    IEnumerator HeavyEffect()
+        }
+    }
+
+
+        IEnumerator HeavyEffect()
     {
         subject.GetComponent<PlayerStats>().isInvince = true;
         yield return new WaitForSeconds(1.5f);
@@ -227,7 +241,12 @@ public class PlayerAtk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(subject==null)
+        {
+            subject = GameObject.FindGameObjectWithTag("Player");
+            control = subject.GetComponent<ThirdPersonUserControl>();
+            anim = subject.GetComponent<Animator>();
+        }
 
         UpdateTree();
         if(heavyCooldown>0)

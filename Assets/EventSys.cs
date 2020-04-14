@@ -7,6 +7,10 @@ public class EventSys : MonoBehaviour
 {
     [SerializeField]private int action = 0;
     public static EventSys instance = null;
+    [SerializeField] private GameObject player;
+
+    [SerializeField] private GameObject ProgressBar;
+    [SerializeField] private ProgressBarScript progress;
     private void Awake()
     {
         if (instance == null)
@@ -40,13 +44,21 @@ public class EventSys : MonoBehaviour
         switch (action)
         {
             case 1:
-                SceneManager.LoadSceneAsync(3);
+                Time.timeScale = 0;
+                progress.loadScenes = 3;
+                ProgressBar.SetActive(true);
+                player.transform.position = new Vector3(70, 35, 53);
                 break;
             case 2:
-                SceneManager.LoadSceneAsync(4);
+                Time.timeScale = 0;
+                progress.loadScenes = 4;
+                ProgressBar.SetActive(true);
+                player.transform.position = new Vector3(50, 10, 35);
                 break;
             case 3:
-                SceneManager.LoadSceneAsync(5);
+                 Time.timeScale = 0;
+                progress.loadScenes = 5;
+                ProgressBar.SetActive(true);
                 break;
 
         }

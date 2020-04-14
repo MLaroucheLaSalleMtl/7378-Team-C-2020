@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("resumed");
     }
 
     public void ReturnToMenu()
@@ -121,6 +122,8 @@ public class GameManager : MonoBehaviour
         inGameMenu.SetActive(false);
         healthBar.SetActive(false);
         Time.timeScale = 1;
+  
+
     }
 
     public void Restart()
@@ -131,4 +134,5 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
 }

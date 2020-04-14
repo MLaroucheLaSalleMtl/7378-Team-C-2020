@@ -3,9 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NotDestroyAtLoading : MonoBehaviour
+public class InputSysLoading : MonoBehaviour
 {
 
+    private static InputSysLoading instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);//only one exist
+
+        }
+        DontDestroyOnLoad(this.gameObject);
+
+
+    }
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -15,21 +32,13 @@ public class NotDestroyAtLoading : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    void Awake()
-    {
-
-        DontDestroyOnLoad(this.gameObject);
-
-
-    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // here you can use scene.buildIndex or scene.name to check which scene was loaded
-        if (scene.buildIndex==0)
+       
+        if (scene.buildIndex == 0)
         {
-            // Destroy the gameobject this script is attached to
+            
             Destroy(gameObject);
         }
     }
-
 }

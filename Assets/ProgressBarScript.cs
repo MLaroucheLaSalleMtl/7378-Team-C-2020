@@ -15,6 +15,8 @@ public class ProgressBarScript : MonoBehaviour
     private float value;
     [SerializeField] private GameObject heathBar;
 
+    [SerializeField] private GameObject panel;
+
 
 
     // Start is called before the first frame update
@@ -44,9 +46,11 @@ public class ProgressBarScript : MonoBehaviour
         }
         value = slider.fillAmount;
         progress.text = value * 100 + "%";
-        if(async.progress == 1)
+        if(async.progress >= 0.9)
         {
             heathBar.SetActive(true);
+            Time.timeScale = 1;
+            panel.SetActive(false);
         }
     }
 }

@@ -46,7 +46,7 @@ public class EventSys : MonoBehaviour
                 SceneManager.LoadSceneAsync(4);
                 break;
             case 3:
-                SceneManager.LoadScene(5);
+                SceneManager.LoadSceneAsync(5);
                 break;
 
         }

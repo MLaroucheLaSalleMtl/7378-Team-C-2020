@@ -839,6 +839,7 @@ GameObject:
   - component: {fileID: 217469944}
   - component: {fileID: 217469943}
   - component: {fileID: 217469942}
+  - component: {fileID: 217469945}
   m_Layer: 0
   m_Name: TelePortDoor (1)
   m_TagString: Untagged
@@ -923,6 +924,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217469940}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &217469945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217469940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d7fbd8de2a6db4ab41d24af71a0261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sys: {fileID: 1489967142}
+  portalTxt: {fileID: 1821691348}
+  action: 3
 --- !u!1 &221916453
 GameObject:
   m_ObjectHideFlags: 0
@@ -7776,7 +7792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d7fbd8de2a6db4ab41d24af71a0261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sys: {fileID: 0}
+  sys: {fileID: 1489967142}
   portalTxt: {fileID: 1821691348}
   action: 1
 --- !u!1001 &1260189124

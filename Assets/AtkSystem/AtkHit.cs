@@ -18,6 +18,13 @@ public class AtkHit : MonoBehaviour
                 other.GetComponent<EnemyStats>().TakeDamage(stats.playerAtk);
                 Debug.Log("hit");
             }
+            if (other.tag == "SummonedEnermies")
+            {
+                onlyOnce = true;
+                // Destroy(other.gameObject,1f);
+                other.GetComponent<MinionStats>().TakeDamage(stats.playerAtk);
+                Debug.Log("hit");
+            }
         }
     }
 

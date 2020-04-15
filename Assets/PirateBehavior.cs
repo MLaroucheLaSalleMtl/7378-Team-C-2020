@@ -26,6 +26,8 @@ public class PirateBehavior : MonoBehaviour
     [SerializeField] GameObject kick;
     private EnemyStats stats;
     private float hp;
+    [SerializeField] private GameObject portal;
+    private GameManager code;
 
     [SerializeField] GameObject grenade;
     // Start is called before the first frame update
@@ -37,6 +39,7 @@ public class PirateBehavior : MonoBehaviour
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         stats = GetComponent<EnemyStats>();
+        code = GameManager.instance;
 
     }
 
@@ -56,6 +59,8 @@ public class PirateBehavior : MonoBehaviour
             anim.SetBool("IsDead", isDead);
             anim.SetTrigger("Death");
             nav.speed = 0f;
+            portal.SetActive(true);
+            code.secondClear = true;
             
         }
 

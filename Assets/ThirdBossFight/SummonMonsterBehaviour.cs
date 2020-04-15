@@ -12,7 +12,8 @@ public class SummonMonsterBehaviour : MonoBehaviour
     private GameObject player;
     private bool isAttacking = false;
     private bool checkCooldown = false;
-
+    private float hp;
+    private MinionStats stat;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +22,27 @@ public class SummonMonsterBehaviour : MonoBehaviour
         nav = gameObject.GetComponent<NavMeshAgent>();
         anim = gameObject.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        stat = GetComponent<MinionStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        hp = stat.hp;
         if (isDead == false)
         {
+
             nav.speed = 0;
             anim.SetBool("isWalking", false);
+
+        }
+        if (hp <= 0 && isDead == false)
+        {
+            isDead = true;
+            anim.SetBool("IsDead", isDead);
+            anim.SetTrigger("Death");
+            nav.speed = 0f;
+            Destroy(gameObject, 5f);
 
         }
 

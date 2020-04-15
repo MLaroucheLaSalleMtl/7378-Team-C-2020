@@ -18,6 +18,11 @@ public class Bullet : MonoBehaviour
             other.GetComponent<EnemyStats>().TakeDamage(15f);
             Destroy(gameObject, 0.2f);
         }
+        if (other.tag == "SummonedEnemies")
+        {
+            other.GetComponent<MinionStats>().TakeDamage(15f);
+            Destroy(gameObject, 0.2f);
+        }
     }
     // Update is called once per frame
     void Update()

@@ -35,6 +35,12 @@ public class LightningBallMove : MonoBehaviour
                col.GetComponent<EnemyStats>().TakeDamage(30);
                 Debug.Log("Boom");
             }
+            if (col.transform.tag == "SummonedEnermies" && onlyOnce == false)
+            {
+                onlyOnce = true;
+                col.GetComponent<MinionStats>().TakeDamage(30);
+                Debug.Log("Boom");
+            }
         }
 
 

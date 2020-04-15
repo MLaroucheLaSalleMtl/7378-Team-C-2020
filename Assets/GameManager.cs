@@ -8,6 +8,11 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
 
+    public bool firstClear = false;
+    public bool secondClear = false;
+    public bool thirdClear = false;
+    public bool allClear = false;
+
 
     public int tree = 1;
     public float atkCooldown;
@@ -41,6 +46,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(firstClear==true&&secondClear==true&&thirdClear==true)
+        {
+            allClear = true;
+        }
+
         if (buffed == false)
         {
             switch (tree)

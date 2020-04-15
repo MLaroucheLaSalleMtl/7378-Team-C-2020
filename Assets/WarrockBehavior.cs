@@ -25,8 +25,10 @@ public class WarrockBehavior : MonoBehaviour
     [SerializeField] AudioSource jumpSound;
     [SerializeField] AudioSource roar;
     private EnemyStats stats;
+    [SerializeField] private GameObject portal;
 
     [SerializeField] GameObject win;
+    private GameManager code;
  
     //public void TakeDamage(float dmg)
     //{
@@ -44,6 +46,7 @@ public class WarrockBehavior : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         anim = gameObject.GetComponent<Animator>();
         nav = gameObject.GetComponent<NavMeshAgent>();
+        code = GameManager.instance;
         
         //monsterHealth.fillAmount =  maxHp / 600;
     }
@@ -62,6 +65,8 @@ public class WarrockBehavior : MonoBehaviour
             anim.SetTrigger("Death");
             nav.speed = 0f;
             Invoke("EnemyDeath", 3f);
+            portal.SetActive(true);
+            code.firstClear = true;
         }
         CheckDistance();
         if (distance >= 3.3 && nav.speed == 0 && isDead == false)

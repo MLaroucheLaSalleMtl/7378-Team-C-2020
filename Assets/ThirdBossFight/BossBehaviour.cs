@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class BossBehaviour : MonoBehaviour
 {
     private NavMeshAgent nav;
-    private bool isDead;
+    private bool isDead =false;
     public float playerDistance;
     [SerializeField] GameObject player;
     private Animator anim;
@@ -19,6 +19,11 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private Transform responEnermyPosition;
     [SerializeField] private GameObject summonedEnermys;
     [SerializeField] private GameObject[] clone;
+    [SerializeField] private GameObject atkHit;
+    private EnemyStats stat;
+    private float hp;
+    private GameManager code;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +35,24 @@ public class BossBehaviour : MonoBehaviour
         responEnermyPosition = GameObject.FindGameObjectWithTag("Respon").transform;
         player = GameObject.FindGameObjectWithTag("Player");
         GameObject[] clone = new GameObject[4];
+        stat = GetComponent<EnemyStats>();
+        code = GameManager.instance;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        hp = stat.hp;
+        if (hp <= 0 && isDead == false)
+        {
+            isDead = true;
+            anim.SetBool("IsDead", isDead);
+            anim.SetTrigger("Death");
+            nav.speed = 0f;
+            code.thirdClear = true;
+
+        }
         clone = GameObject.FindGameObjectsWithTag("SummonedEnermies");
 
         //transform.LookAt(player.transform.position);
@@ -187,7 +205,8 @@ public class BossBehaviour : MonoBehaviour
         nav.speed = 0;
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("MeleeAttack1", false);
-        yield return new WaitForSeconds(1.5f);
+        Instantiate(atkHit, gameObject.transform);
+        yield return new WaitForSeconds(2.5f);
         isAttacking = false;
         
 
@@ -200,7 +219,8 @@ public class BossBehaviour : MonoBehaviour
         nav.speed = 0;
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("MeleeAttack2", false);
-        yield return new WaitForSeconds(1.5f);
+        Instantiate(atkHit, gameObject.transform);
+        yield return new WaitForSeconds(2.5f);
         isAttacking = false;
       
     }
@@ -210,9 +230,11 @@ public class BossBehaviour : MonoBehaviour
         isAttacking = true;
         //Debug.Log("attack3");
         anim.SetBool("Attack1", true);
-        yield return new WaitForSeconds(3f);
-        anim.SetBool("Attack1", false);
         yield return new WaitForSeconds(2f);
+        Instantiate(atkHit, gameObject.transform);
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("Attack1", false);
+        yield return new WaitForSeconds(2.5f);
         isAttacking = false;
        
     }
@@ -221,9 +243,11 @@ public class BossBehaviour : MonoBehaviour
         nav.speed = 0;
         isAttacking = true;
         anim.SetBool("Attack2", true);
-        yield return new WaitForSeconds(3f);
-        anim.SetBool("Attack2", false);
         yield return new WaitForSeconds(2f);
+        Instantiate(atkHit, gameObject.transform);
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("Attack2", false);
+        yield return new WaitForSeconds(2.5f);
         isAttacking = false;
     }
     IEnumerator Attack3()
@@ -231,9 +255,11 @@ public class BossBehaviour : MonoBehaviour
         nav.speed = 0;
         isAttacking = true;
         anim.SetBool("Attack3", true);
-        yield return new WaitForSeconds(3f);
-        anim.SetBool("Attack3", false);
         yield return new WaitForSeconds(2f);
+        Instantiate(atkHit, gameObject.transform);
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("Attack3", false);
+        yield return new WaitForSeconds(2.5f);
         isAttacking = false;
     }
 

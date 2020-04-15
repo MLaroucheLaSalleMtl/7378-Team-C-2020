@@ -23,6 +23,18 @@ public class AtkHit3 : MonoBehaviour
                 Debug.Log("hit");
                 Destroy(gameObject);
             }
+            if (other.tag == "SummonedEnermies")
+            {
+                onlyOnce = true;
+                // Destroy(other.gameObject,1f);
+                other.GetComponent<MinionStats>().TakeDamage(stats.playerAtk);
+                if (stats.super == true)
+                {
+                    stats.LifeVamp();
+                }
+                Debug.Log("hit");
+                Destroy(gameObject);
+            }
         }
     }
 

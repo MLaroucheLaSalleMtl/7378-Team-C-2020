@@ -10,18 +10,14 @@ public class FollowTargetThr : MonoBehaviour
     private Vector3 destination;
     private NavMeshAgent agent;
     float rotateSpeed = 3.0f;
-    private void Awake()
-    {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-   
-    }
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         destination = agent.destination;
-        
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 
     // Update is called once per frame

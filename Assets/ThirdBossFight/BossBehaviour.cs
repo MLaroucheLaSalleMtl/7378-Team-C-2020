@@ -28,6 +28,7 @@ public class BossBehaviour : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         summonPoint =  GameObject.FindGameObjectWithTag("Summon").transform;
         responEnermyPosition = GameObject.FindGameObjectWithTag("Respon").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         GameObject[] clone = new GameObject[4];
     }
 
@@ -86,7 +87,7 @@ public class BossBehaviour : MonoBehaviour
             }
 
             //summon enermies
-            if (random < 40 && random > 37 && isAttacking == false && nav.speed == 0)
+            if (random < 40 && random > 30 && isAttacking == false && nav.speed == 0)
             {
                 isSummon = true;
                 isAttacking = true;
@@ -186,7 +187,7 @@ public class BossBehaviour : MonoBehaviour
         nav.speed = 0;
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("MeleeAttack1", false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         isAttacking = false;
         
 
@@ -199,7 +200,7 @@ public class BossBehaviour : MonoBehaviour
         nav.speed = 0;
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("MeleeAttack2", false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         isAttacking = false;
       
     }
@@ -211,7 +212,7 @@ public class BossBehaviour : MonoBehaviour
         anim.SetBool("Attack1", true);
         yield return new WaitForSeconds(3f);
         anim.SetBool("Attack1", false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         isAttacking = false;
        
     }
@@ -222,7 +223,7 @@ public class BossBehaviour : MonoBehaviour
         anim.SetBool("Attack2", true);
         yield return new WaitForSeconds(3f);
         anim.SetBool("Attack2", false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         isAttacking = false;
     }
     IEnumerator Attack3()
@@ -232,7 +233,7 @@ public class BossBehaviour : MonoBehaviour
         anim.SetBool("Attack3", true);
         yield return new WaitForSeconds(3f);
         anim.SetBool("Attack3", false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         isAttacking = false;
     }
 

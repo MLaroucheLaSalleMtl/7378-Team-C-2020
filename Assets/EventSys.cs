@@ -61,9 +61,16 @@ public class EventSys : MonoBehaviour
                  Time.timeScale = 0;
                 progress.loadScenes = 5;
                 ProgressBar.SetActive(true);
+                player.transform.position = new Vector3(9, 2, 24);
                 break;
             case 4:
                 input.isTalking = true;
+                break;
+            case 5:
+                Time.timeScale = 0;
+                progress.loadScenes = 2;
+                ProgressBar.SetActive(true);
+                player.transform.position = new Vector3(46, 32, 64);
                 break;
 
 

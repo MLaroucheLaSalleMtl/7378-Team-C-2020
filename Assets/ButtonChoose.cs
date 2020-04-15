@@ -9,12 +9,13 @@ public class ButtonChoose : MonoBehaviour
     [SerializeField] private GameObject character;
     [SerializeField] private ProgressBarScript progress;
     private int choosedVien;
-    [SerializeField] private GameManager viens;
+     private GameManager viens;
     
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0;
+        viens = GameManager.instance;
     }
 
     // Update is called once per frame

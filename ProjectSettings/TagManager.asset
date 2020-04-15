@@ -11,6 +11,10 @@ TagManager:
   - GM
   - TP
   - EventSys
+  - Explode
+  - tree1
+  - tree2
+  - tree3
   layers:
   - Default
   - TransparentFX

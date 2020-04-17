@@ -6,13 +6,13 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     [SerializeField] private GameObject explosionImpact;
-   
+    private AudioSource sound;
     public bool isTouch = true;
  
     // Start is called before the first frame update
     void Start()
     {
-       
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,6 +22,7 @@ public class Explosion : MonoBehaviour
     }
     private void Explode()
     {
+        sound.Play();
         if (isTouch == true)
         {
             //if (collision.gameObject.tag == "Surface")
@@ -53,7 +54,7 @@ public class Explosion : MonoBehaviour
                     col.GetComponent<Rigidbody>().AddExplosionForce(10f, gameObject.transform.position, 10f, 1f, ForceMode.VelocityChange);
                 }
             }
-            Destroy(gameObject);
+            Destroy(gameObject,1f);
             Destroy(clone, 2f);
             isTouch = false;
 

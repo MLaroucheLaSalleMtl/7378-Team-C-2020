@@ -20,14 +20,17 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private GameObject summonedEnermys;
     [SerializeField] private GameObject[] clone;
     [SerializeField] private GameObject atkHit;
+    private AudioSource sound;
     private EnemyStats stat;
     private float hp;
     private GameManager code;
+    [SerializeField] private GameObject portal;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        sound = GetComponent<AudioSource>();
         isDead = false;
         nav = gameObject.GetComponent<NavMeshAgent>();
         anim = gameObject.GetComponent<Animator>();
@@ -51,6 +54,7 @@ public class BossBehaviour : MonoBehaviour
             anim.SetTrigger("Death");
             nav.speed = 0f;
             code.thirdClear = true;
+            portal.SetActive(true);
 
         }
         clone = GameObject.FindGameObjectsWithTag("SummonedEnermies");

@@ -232,7 +232,8 @@ public class WarrockBehavior : MonoBehaviour
 
     void EnemyDeath()
     {
-        SceneManager.LoadScene(2);
+        portal.SetActive(true);
+        code.firstClear = true;
         //win.SetActive(true);
         //Time.timeScale = 0;
         //Cursor.visible = true;

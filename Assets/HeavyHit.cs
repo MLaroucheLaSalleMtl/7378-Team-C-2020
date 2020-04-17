@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeavyHit : MonoBehaviour
 {
 
-
+    private AudioSource sound;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Target")
@@ -13,7 +13,7 @@ public class HeavyHit : MonoBehaviour
             
             // Destroy(other.gameObject,1f);
             other.GetComponent<EnemyStats>().TakeDamage(50);
-            
+            sound.Play();
             Debug.Log("hit");
             Destroy(gameObject);
         }
@@ -22,7 +22,7 @@ public class HeavyHit : MonoBehaviour
 
             // Destroy(other.gameObject,1f);
             other.GetComponent<MinionStats>().TakeDamage(50);
-
+            sound.Play();
             Debug.Log("hit");
             Destroy(gameObject);
         }
@@ -31,6 +31,7 @@ public class HeavyHit : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 0.5f);
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

@@ -5,6 +5,7 @@ using UnityEngine;
 public class AtkHit3 : MonoBehaviour
 {
     private bool onlyOnce = false;
+    [SerializeField]private AudioSource sound;
     [SerializeField] private PlayerStats stats;
 
     public void OnTriggerEnter(Collider other)
@@ -14,7 +15,7 @@ public class AtkHit3 : MonoBehaviour
             if (other.tag == "Target")
             {
                 onlyOnce = true;
-                
+                sound.Play();
                 other.GetComponent<EnemyStats>().TakeDamage(stats.playerAtk);
                 if(stats.super==true)
                 {
@@ -25,6 +26,7 @@ public class AtkHit3 : MonoBehaviour
             }
             if (other.tag == "SummonedEnermies")
             {
+                sound.Play();
                 onlyOnce = true;
                 // Destroy(other.gameObject,1f);
                 other.GetComponent<MinionStats>().TakeDamage(stats.playerAtk);
@@ -42,6 +44,7 @@ public class AtkHit3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         Destroy(gameObject, 1.3f);
     }

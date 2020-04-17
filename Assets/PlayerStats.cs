@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private Image heathBar;
     [SerializeField] private GameObject death;
 
-  
+    public float Hp { get => hp; set => hp = value; }
 
     IEnumerator DodgingInvince()
     {

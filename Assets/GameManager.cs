@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public bool buffed = false;
 
     private int action = 0;
-
+    
 
     public static GameManager instance = null;
     private void Awake()

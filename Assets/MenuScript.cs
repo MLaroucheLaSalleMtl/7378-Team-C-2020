@@ -7,13 +7,15 @@ public class MenuScript : MonoBehaviour
 {
 
     [SerializeField] private GameObject progressBar;
-
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject inGameMenu;
     [SerializeField] private GameObject character;
     [SerializeField] private GameObject healthBar;
     [SerializeField] private ProgressBarScript progress;
     [SerializeField] private GameObject viensMenu;
     [SerializeField] private GameObject deathPannel;
+    [SerializeField] private PlayerStats playerHealth;
+    [SerializeField] private GameObject option;
 
 
     public static MenuScript instance = null;
@@ -101,11 +103,30 @@ public class MenuScript : MonoBehaviour
 
     public void Rertry()
     {
+        
         progress.loadScenes = 2;
+        progressBar.SetActive(true);
         deathPannel.SetActive(false);
         Cursor.visible = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        //reset player's health and position
+        playerHealth.Hp = 100;
+        player.transform.position = new Vector3(46, 32, 64);
+    }
+    public void Option()
+    {
+        healthBar.SetActive(false);
+        inGameMenu.SetActive(false);
+        option.SetActive(true);
+
+    }
+    public void Return()
+    {
+        
+        option.SetActive(false);
+        inGameMenu.SetActive(true);
+        healthBar.SetActive(true);
     }
 
 }

@@ -73,8 +73,6 @@ public class EventSys : MonoBehaviour
                 player.transform.position = new Vector3(46, 32, 64);
                 break;
 
-
-
         }
         action = 0;
 

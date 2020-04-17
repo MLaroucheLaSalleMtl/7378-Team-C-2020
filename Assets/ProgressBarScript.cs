@@ -65,5 +65,6 @@ public class ProgressBarScript : MonoBehaviour
             Time.timeScale = 1;
             panel.SetActive(false);
         }
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 }

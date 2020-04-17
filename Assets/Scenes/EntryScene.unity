@@ -6986,12 +6986,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressBar: {fileID: 1379990192}
-  menu: {fileID: 0}
   inGameMenu: {fileID: 2022281344}
   character: {fileID: 0}
   healthBar: {fileID: 1872552811}
   progress: {fileID: 499834944}
   viensMenu: {fileID: 767660294}
+  deathPannel: {fileID: 708502427}
 --- !u!4 &755059664
 Transform:
   m_ObjectHideFlags: 0
@@ -7728,7 +7728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -6.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158898047
@@ -7763,7 +7763,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: 'Retry
+
+'
 --- !u!222 &1158898048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7852,7 +7854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.88
+      value: 32.014
       objectReference: {fileID: 0}
     - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8694,8 +8696,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 755059663}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
@@ -9066,9 +9068,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Restart
+      - m_Target: {fileID: 755059663}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: Rertry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

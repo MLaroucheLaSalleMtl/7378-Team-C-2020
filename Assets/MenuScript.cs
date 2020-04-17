@@ -7,12 +7,29 @@ public class MenuScript : MonoBehaviour
 {
 
     [SerializeField] private GameObject progressBar;
-    [SerializeField] private GameObject menu;
+
     [SerializeField] private GameObject inGameMenu;
     [SerializeField] private GameObject character;
     [SerializeField] private GameObject healthBar;
     [SerializeField] private ProgressBarScript progress;
     [SerializeField] private GameObject viensMenu;
+    [SerializeField] private GameObject deathPannel;
+
+
+    public static MenuScript instance = null;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);//only one exist
+
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,19 +53,12 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-    public void LoadingCharactorChoosing()
-    {
-        SceneManager.LoadSceneAsync(1);
-    }
+
     public void PlayGame()
     {
         progress.loadScenes = 2;
         progressBar.SetActive(true);
         character.SetActive(false);
-    }
-    public void ExitGame()
-    {
-        Application.Quit();
     }
 
     //InGame Menu Button
@@ -69,8 +79,6 @@ public class MenuScript : MonoBehaviour
         inGameMenu.SetActive(false);
         healthBar.SetActive(false);
         Time.timeScale = 1;
-
-
     }
 
     public void Restart()
@@ -89,6 +97,15 @@ public class MenuScript : MonoBehaviour
         healthBar.SetActive(false);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void Rertry()
+    {
+        progress.loadScenes = 2;
+        deathPannel.SetActive(false);
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 }

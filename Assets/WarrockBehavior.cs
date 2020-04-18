@@ -234,6 +234,7 @@ public class WarrockBehavior : MonoBehaviour
     {
         portal.SetActive(true);
         code.firstClear = true;
+        code.FirstClear();
         //win.SetActive(true);
         //Time.timeScale = 0;
         //Cursor.visible = true;

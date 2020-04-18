@@ -54,6 +54,7 @@ public class BossBehaviour : MonoBehaviour
             anim.SetTrigger("Death");
             nav.speed = 0f;
             code.thirdClear = true;
+            code.ThirdClear();
             portal.SetActive(true);
 
         }

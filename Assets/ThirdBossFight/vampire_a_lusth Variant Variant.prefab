@@ -27,6 +27,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDistance: 0
+  hitbox: {fileID: 3779949054007970860, guid: b94acf871070d874d8f9099ca7dc1a8d, type: 3}
 --- !u!114 &789136622591850187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,6 +41,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &2044764600025136980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645563366569767837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ccf18956517be449cba80f47b1c235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  maxHp: 20
+  Duration: 0
 --- !u!195 &7221569536948458658
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -62,21 +78,6 @@ NavMeshAgent:
   m_BaseOffset: -0.18
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2044764600025136980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645563366569767837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61ccf18956517be449cba80f47b1c235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 20
-  maxHp: 20
-  Duration: 0
 --- !u!136 &6401892660740636744
 CapsuleCollider:
   m_ObjectHideFlags: 0

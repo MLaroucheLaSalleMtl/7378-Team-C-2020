@@ -14,6 +14,7 @@ public class SummonMonsterBehaviour : MonoBehaviour
     private bool checkCooldown = false;
     private float hp;
     private MinionStats stat;
+    [SerializeField] private GameObject hitbox;
 
     // Start is called before the first frame update
     void Start()
@@ -69,9 +70,15 @@ public class SummonMonsterBehaviour : MonoBehaviour
     IEnumerator SummonsAttack1()
     {
         nav.speed = 0;
+        
         isAttacking = true;
         anim.SetBool("SummonsAttack1", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        if (isDead == false)
+        {
+            Instantiate(hitbox, transform);
+        }
+        yield return new WaitForSeconds(1f);
         anim.SetBool("SummonsAttack1", false);
         yield return new WaitForSeconds(1f);
         isAttacking = false;

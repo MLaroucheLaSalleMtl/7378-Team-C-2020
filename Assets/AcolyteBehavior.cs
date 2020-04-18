@@ -11,12 +11,15 @@ public class AcolyteBehavior : MonoBehaviour
     private bool onlyOnce = true;
     [SerializeField] Text portalTxt;
     [SerializeField] private int action=5;
+    private GameManager code;
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         sys = EventSys.instance;
+        code = GameManager.instance;
     }
 
     // Update is called once per frame
@@ -25,7 +28,7 @@ public class AcolyteBehavior : MonoBehaviour
         transform.LookAt(player.transform);
 
         CheckDistance();
-        if (distance <= 2 && onlyOnce == true)
+        if (distance <= 2 && onlyOnce == true )
         {
             sys.SetAction(action);
             onlyOnce = false;

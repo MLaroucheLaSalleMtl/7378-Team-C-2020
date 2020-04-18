@@ -61,6 +61,7 @@ public class PirateBehavior : MonoBehaviour
             nav.speed = 0f;
             portal.SetActive(true);
             code.secondClear = true;
+            code.SecondClear();
             
         }
 

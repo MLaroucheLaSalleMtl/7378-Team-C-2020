@@ -111,6 +111,7 @@ public class MenuScript : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         //reset player's health and position
+        playerHealth.IsDead = false;
         playerHealth.Hp = 100;
         player.transform.position = new Vector3(46, 35, 64);
     }

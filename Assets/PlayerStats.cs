@@ -29,6 +29,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private GameObject death;
 
     public float Hp { get => hp; set => hp = value; }
+    public bool IsDead { get => isDead; set => isDead = value; }
 
     IEnumerator DodgingInvince()
     {

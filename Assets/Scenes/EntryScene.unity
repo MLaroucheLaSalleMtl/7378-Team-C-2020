@@ -7199,6 +7199,11 @@ PrefabInstance:
       propertyPath: viens
       value: 
       objectReference: {fileID: 708672622}
+    - target: {fileID: 2977047406087592496, guid: 2f009bc849b17894b9561b89e2ac32b3,
+        type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1872552811}
     - target: {fileID: 2977047406164176914, guid: 2f009bc849b17894b9561b89e2ac32b3,
         type: 3}
       propertyPath: inGameMenu
@@ -7209,6 +7214,11 @@ PrefabInstance:
       propertyPath: viens
       value: 
       objectReference: {fileID: 708672622}
+    - target: {fileID: 2977047406164176914, guid: 2f009bc849b17894b9561b89e2ac32b3,
+        type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1872552811}
     - target: {fileID: 2977047406445680517, guid: 2f009bc849b17894b9561b89e2ac32b3,
         type: 3}
       propertyPath: inGameMenu
@@ -7219,6 +7229,11 @@ PrefabInstance:
       propertyPath: viens
       value: 
       objectReference: {fileID: 708672622}
+    - target: {fileID: 2977047406445680517, guid: 2f009bc849b17894b9561b89e2ac32b3,
+        type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1872552811}
     - target: {fileID: 2977047406901795964, guid: 2f009bc849b17894b9561b89e2ac32b3,
         type: 3}
       propertyPath: m_Name

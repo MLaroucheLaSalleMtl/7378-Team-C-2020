@@ -112,7 +112,7 @@ public class MenuScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         //reset player's health and position
         playerHealth.Hp = 100;
-        player.transform.position = new Vector3(46, 32, 64);
+        player.transform.position = new Vector3(46, 35, 64);
     }
     public void Option()
     {

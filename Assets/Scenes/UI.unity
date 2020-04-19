@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: 307086258}
   - component: {fileID: 307086257}
   - component: {fileID: 307086256}
+  - component: {fileID: 307086259}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -538,6 +539,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &307086259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307086255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9585fa9e410c85643b07434182ab134c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &526690299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,6 +1690,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 744464790}
+    - target: {fileID: 4999643892303470348, guid: 2eac8b8f3c713e047a3ef5ae2950e62b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Return
+      objectReference: {fileID: 0}
     - target: {fileID: 4999643892350685706, guid: 2eac8b8f3c713e047a3ef5ae2950e62b,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

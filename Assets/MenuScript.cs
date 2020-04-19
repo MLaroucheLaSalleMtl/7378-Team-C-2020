@@ -16,6 +16,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private GameObject deathPannel;
     [SerializeField] private PlayerStats playerHealth;
     [SerializeField] private GameObject option;
+    [SerializeField] private GameObject win;
 
 
     public static MenuScript instance = null;
@@ -35,13 +36,14 @@ public class MenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+
     }
 
     public void OpenMenu(InputAction.CallbackContext context)
@@ -80,6 +82,7 @@ public class MenuScript : MonoBehaviour
         progressBar.SetActive(true);
         inGameMenu.SetActive(false);
         healthBar.SetActive(false);
+        win.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -103,7 +106,6 @@ public class MenuScript : MonoBehaviour
 
     public void Rertry()
     {
-        
         progress.loadScenes = 2;
         progressBar.SetActive(true);
         deathPannel.SetActive(false);
@@ -124,10 +126,13 @@ public class MenuScript : MonoBehaviour
     }
     public void Return()
     {
-        
+
         option.SetActive(false);
         inGameMenu.SetActive(true);
         healthBar.SetActive(true);
     }
-
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

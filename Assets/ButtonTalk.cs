@@ -16,5 +16,7 @@ public class ButtonTalk : MonoBehaviour
     public void Onclick()
     {
         sys.EndTalk();
+        Time.timeScale = 1;
+   
     }
 }

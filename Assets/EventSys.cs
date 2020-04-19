@@ -111,6 +111,7 @@ public class EventSys : MonoBehaviour
                 input.isTalking = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0;
                 talkPanel.SetActive(true);
                 switch(accolyteTalk)
                 {

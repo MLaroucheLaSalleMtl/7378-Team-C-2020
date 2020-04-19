@@ -137,7 +137,7 @@ public class MenuScript : MonoBehaviour
         //reset player's health and position
         playerHealth.IsDead = false;
         playerHealth.Hp = 100;
-        player.transform.position = new Vector3(46, 35, 64);
+        player.transform.position = new Vector3(46, 38, 64);
     }
     public void Option()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class EventSys : MonoBehaviour
 {
@@ -17,11 +18,14 @@ public class EventSys : MonoBehaviour
     [SerializeField] private Text accolyteTxt;
     [SerializeField] private GameObject panelEnd;
     private GameManager code;
+    [SerializeField] private GameObject defaultButton;
     public void EndTalk()
     {
         if (input.isTalking == true && code.allClear == false)
         {
             input.isTalking = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         talkPanel.SetActive(false);
@@ -99,7 +103,7 @@ public class EventSys : MonoBehaviour
                 Time.timeScale = 0;
                 progress.loadScenes = 4;
                 ProgressBar.SetActive(true);
-                player.transform.position = new Vector3(50, 10, 35);
+                player.transform.position = new Vector3(50, 20, 35);
                 break;
             case 3:
                  Time.timeScale = 0;
@@ -113,6 +117,7 @@ public class EventSys : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
                 talkPanel.SetActive(true);
+                GetComponent<EventSystem>().SetSelectedGameObject(defaultButton);
                 switch(accolyteTalk)
                 {
                     case 1:

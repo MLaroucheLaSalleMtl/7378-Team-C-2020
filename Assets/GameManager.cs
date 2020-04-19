@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public float dodging;
     public float maxCount;
     public bool buffed = false;
-
+    
     private int action = 0;
     
 

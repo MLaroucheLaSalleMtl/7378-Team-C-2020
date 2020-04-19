@@ -6375,6 +6375,12 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &464992445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8438965117988680379, guid: 9c86f086ca989ff40b1b8fadecb77ae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5658022688341812489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &499834944 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4250612235906777682, guid: 68046784d3b0a314eb43a14d94ed248a,
@@ -6821,6 +6827,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &659564269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2977047406087592509, guid: 2f009bc849b17894b9561b89e2ac32b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 763331562}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &681617851 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce,
@@ -7382,6 +7394,8 @@ MonoBehaviour:
   playerHealth: {fileID: 681617853}
   option: {fileID: 1461318980}
   win: {fileID: 1744836848}
+  defaultButton: {fileID: 464992445}
+  defaultChoose: {fileID: 659564269}
 --- !u!4 &755059664
 Transform:
   m_ObjectHideFlags: 0
@@ -10133,29 +10147,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RepeatDelay: 0.5
   m_RepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_PointAction: {fileID: 1054132383583890850, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MoveAction: {fileID: 3710738434707379630, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_SubmitAction: {fileID: 2064916234097673511, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_CancelAction: {fileID: -1967631576421560919, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_RightClickAction: {fileID: 3837173908680883260, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
-  m_TrackedDeviceSelectAction: {fileID: 2559092417903258184, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDeviceSelectAction: {fileID: 2559092417903258184, guid: 28379f710d065ed478e3da1e24f49d70,
     type: 3}
 --- !u!114 &1489967140
 MonoBehaviour:
@@ -10169,7 +10183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2103684963}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1489967141
@@ -10207,6 +10221,7 @@ MonoBehaviour:
   accolyteTalk: 1
   accolyteTxt: {fileID: 982040286}
   panelEnd: {fileID: 2137344994}
+  defaultButton: {fileID: 967680466}
 --- !u!114 &1489967143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26413,6 +26428,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 24100000, guid: 711d19e69e9a9f0478c835deebbaec3b, type: 2}
+--- !u!1 &2103684963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4999643892303470338, guid: 2eac8b8f3c713e047a3ef5ae2950e62b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103684960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2137344994
 GameObject:
   m_ObjectHideFlags: 0
@@ -26505,6 +26526,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: VienChoose
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164153320026352261, guid: 9c86f086ca989ff40b1b8fadecb77ae4,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Veins
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8438965117988680357, guid: 9c86f086ca989ff40b1b8fadecb77ae4,
         type: 3}

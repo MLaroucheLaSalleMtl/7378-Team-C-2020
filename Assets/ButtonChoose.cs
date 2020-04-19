@@ -8,7 +8,6 @@ public class ButtonChoose : MonoBehaviour
     [SerializeField] private GameObject progressBar;
     [SerializeField] private GameObject character;
     [SerializeField] private ProgressBarScript progress;
-    [SerializeField] private GameObject health;
     private int choosedVien;
      private GameManager viens;
     
@@ -47,7 +46,6 @@ public class ButtonChoose : MonoBehaviour
         }
        
         character.SetActive(false);
-        health.SetActive(true);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
 

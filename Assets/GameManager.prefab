@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002114974496916080}
   - component: {fileID: 1002114974496916083}
+  - component: {fileID: 708672621}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GM
@@ -41,5 +42,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d40182df66d78547ba390ac92801231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstClear: 0
+  secondClear: 0
+  thirdClear: 0
+  allClear: 0
+  tree: 2
+  atkCooldown: 0
+  globalCooldown: 0
+  dodging: 0
+  maxCount: 0
+  buffed: 0
+--- !u!114 &708672621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002114974496916082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9585fa9e410c85643b07434182ab134c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

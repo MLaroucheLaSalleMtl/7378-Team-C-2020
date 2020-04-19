@@ -28,6 +28,8 @@ public class PirateBehavior : MonoBehaviour
     private float hp;
     [SerializeField] private GameObject portal;
     private GameManager code;
+    private EventSys sys;
+    private float rotateSpeed = 3;
 
     [SerializeField] GameObject grenade;
     // Start is called before the first frame update
@@ -40,6 +42,7 @@ public class PirateBehavior : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         stats = GetComponent<EnemyStats>();
         code = GameManager.instance;
+        sys = EventSys.instance;
 
     }
 
@@ -49,7 +52,10 @@ public class PirateBehavior : MonoBehaviour
         hp = stats.hp;
         if (isDead == false)
         {
-            transform.LookAt(player.transform.position);
+            // transform.LookAt(player.transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                                                 Quaternion.LookRotation(player.transform.position - transform.position)
+                                                 , rotateSpeed * Time.deltaTime);
         }
         CheckDistance();
         CheckWalk();
@@ -61,7 +67,7 @@ public class PirateBehavior : MonoBehaviour
             nav.speed = 0f;
             portal.SetActive(true);
             code.secondClear = true;
-            code.SecondClear();
+            sys.accolyteTalk = 6;
             
         }
 
@@ -166,6 +172,7 @@ public class PirateBehavior : MonoBehaviour
 
     IEnumerator Kick()
     {
+        isAtking = true;
         
         anim.SetTrigger("Melee");
         yield return new WaitForSeconds(0.75f);
@@ -174,6 +181,7 @@ public class PirateBehavior : MonoBehaviour
         isDodging = true;
         yield return new WaitForSeconds(2.5f / anim.GetFloat("Speed"));
         isDodging = false;
+        isAtking = false;
         dodgeCount += 1;
 
     }

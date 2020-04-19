@@ -17,6 +17,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private PlayerStats playerHealth;
     [SerializeField] private GameObject option;
     [SerializeField] private GameObject win;
+    private EventSys sys;
 
 
     public static MenuScript instance = null;
@@ -36,7 +37,7 @@ public class MenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        sys = EventSys.instance;
     }
 
     // Update is called once per frame
@@ -78,6 +79,7 @@ public class MenuScript : MonoBehaviour
     public void ReturnToMenu()
     {
         //SceneManager.LoadSceneAsync(0);
+        
         progress.loadScenes = 0;
         progressBar.SetActive(true);
         inGameMenu.SetActive(false);

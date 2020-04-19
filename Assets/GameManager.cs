@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
 
     private int accolyteTalk=1;
 
-    private EventSys sys;
     public int tree = 1;
     public float atkCooldown;
     public float globalCooldown;
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sys = EventSys.instance;
+
     }
 
     // Update is called once per frame
@@ -81,17 +80,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void FirstClear()
-    {
-        sys.accolyteTalk = 5;
-    }
-    public void SecondClear()
-    {
-        sys.accolyteTalk = 6;
-    }
-    public void ThirdClear()
-    {
-        sys.accolyteTalk = 7;
-    }
 
 }

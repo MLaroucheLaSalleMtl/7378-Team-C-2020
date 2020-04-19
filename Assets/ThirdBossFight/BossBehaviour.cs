@@ -25,6 +25,7 @@ public class BossBehaviour : MonoBehaviour
     private float hp;
     private GameManager code;
     [SerializeField] private GameObject portal;
+    private EventSys sys;
 
 
     // Start is called before the first frame update
@@ -40,6 +41,7 @@ public class BossBehaviour : MonoBehaviour
         GameObject[] clone = new GameObject[4];
         stat = GetComponent<EnemyStats>();
         code = GameManager.instance;
+        sys = EventSys.instance;
         
     }
 
@@ -54,7 +56,7 @@ public class BossBehaviour : MonoBehaviour
             anim.SetTrigger("Death");
             nav.speed = 0f;
             code.thirdClear = true;
-            code.ThirdClear();
+            sys.accolyteTalk = 7;
             portal.SetActive(true);
 
         }

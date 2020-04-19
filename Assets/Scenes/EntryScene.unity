@@ -922,6 +922,7 @@ GameObject:
   - component: {fileID: 217469943}
   - component: {fileID: 217469942}
   - component: {fileID: 217469945}
+  - component: {fileID: 217469946}
   m_Layer: 0
   m_Name: TelePortDoor (1)
   m_TagString: Untagged
@@ -1020,6 +1021,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalTxt: {fileID: 1821691348}
   action: 3
+--- !u!114 &217469946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217469940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303493b0fdb7f1745ae1e7489e8aa4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &221916453
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,7 +6861,6 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
-  - component: {fileID: 705507997}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -6931,18 +6943,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 67.3, y: 0, z: 0}
---- !u!114 &705507997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705507993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9585fa9e410c85643b07434182ab134c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &708502427
 GameObject:
   m_ObjectHideFlags: 0
@@ -7087,58 +7087,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
-        type: 3}
-      propertyPath: tree
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
-        type: 3}
-      propertyPath: inGameMenu
-      value: 
-      objectReference: {fileID: 2022281344}
-    - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
-        type: 3}
-      propertyPath: progressBar
-      value: 
-      objectReference: {fileID: 1379990192}
-    - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
-        type: 3}
-      propertyPath: progress
-      value: 
-      objectReference: {fileID: 499834944}
-    - target: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
-        type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1872552811}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da9c535e15bf5541972fcc0cdba2163, type: 3}
---- !u!1 &708672620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1002114974496916082, guid: 1da9c535e15bf5541972fcc0cdba2163,
-    type: 3}
-  m_PrefabInstance: {fileID: 708672619}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &708672621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708672620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9585fa9e410c85643b07434182ab134c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &708672622 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1002114974496916083, guid: 1da9c535e15bf5541972fcc0cdba2163,
     type: 3}
   m_PrefabInstance: {fileID: 708672619}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708672620}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d40182df66d78547ba390ac92801231, type: 3}

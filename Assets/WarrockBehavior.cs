@@ -29,6 +29,7 @@ public class WarrockBehavior : MonoBehaviour
 
     [SerializeField] GameObject win;
     private GameManager code;
+    private EventSys sys;
  
     //public void TakeDamage(float dmg)
     //{
@@ -47,6 +48,7 @@ public class WarrockBehavior : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         nav = gameObject.GetComponent<NavMeshAgent>();
         code = GameManager.instance;
+        sys = EventSys.instance;
         
         //monsterHealth.fillAmount =  maxHp / 600;
     }
@@ -64,9 +66,9 @@ public class WarrockBehavior : MonoBehaviour
             anim.SetBool("IsDead", isDead);
             anim.SetTrigger("Death");
             nav.speed = 0f;
-            Invoke("EnemyDeath", 3f);
             portal.SetActive(true);
             code.firstClear = true;
+            sys.accolyteTalk = 5;
         }
         CheckDistance();
         if (distance >= 3.3 && nav.speed == 0 && isDead == false)
@@ -230,14 +232,5 @@ public class WarrockBehavior : MonoBehaviour
         this.distance = Vector3.Distance(transform.position, player.transform.position);
     }
 
-    void EnemyDeath()
-    {
-        portal.SetActive(true);
-        code.firstClear = true;
-        code.FirstClear();
-        //win.SetActive(true);
-        //Time.timeScale = 0;
-        //Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.None;
-    }
+
 }

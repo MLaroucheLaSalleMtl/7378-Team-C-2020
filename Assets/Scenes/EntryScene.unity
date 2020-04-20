@@ -7300,6 +7300,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1459135280279732996, guid: 2e860abd201ea7d4fa05b40b548275c2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'The guardians has fall
+
+        The ritual has begin
+
+        the Old
+        deus shall be awaken'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e860abd201ea7d4fa05b40b548275c2, type: 3}
 --- !u!224 &723717772 stripped
